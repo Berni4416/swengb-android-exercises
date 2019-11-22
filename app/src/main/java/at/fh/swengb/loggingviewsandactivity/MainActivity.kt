@@ -27,8 +27,10 @@ class MainActivity : AppCompatActivity() {
                 putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
                 type = "text/plain"
             }
+
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
+
         }
 
         open_views.setOnClickListener {
@@ -36,16 +38,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        open_rating.setOnClickListener {
-            val intent = Intent(this, RatingActivity::class.java)
-            startActivity(intent)
-        }
-
-        open_lessons.setOnClickListener{
+        open_lessons.setOnClickListener {
             val intent = Intent(this, LessonListActivity::class.java)
             startActivity(intent)
         }
 
+        open_rating.setOnClickListener {
+            val intent = Intent(this, RatingActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
