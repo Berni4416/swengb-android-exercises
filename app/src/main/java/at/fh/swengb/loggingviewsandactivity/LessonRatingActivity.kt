@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_lesson_rating.*
 
 class LessonRatingActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class LessonRatingActivity : AppCompatActivity() {
         if (lessonId == null) {
             finish()
         } else {
-            lesson_rating_header.text = LessonRepository.lessonById(lessonId)?.name
+            LessonRepository.lessonById(id = lessonId, success = {lesson_rating_header.text = it.name}, error = { Log.e("ERROR", it) })
 
             rate_lesson.setOnClickListener{
                 val myRating = lesson_rating_bar.rating.toDouble()

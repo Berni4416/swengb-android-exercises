@@ -1,5 +1,7 @@
 package at.fh.swengb.loggingviewsandactivity
 
+import com.squareup.moshi.JsonClass
+@JsonClass(generateAdapter = true)
 class Lesson(val id: String,
              val name:String,
              var date:String,
@@ -17,4 +19,5 @@ class Lesson(val id: String,
 
         return average
     }
+
 }
